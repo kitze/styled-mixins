@@ -5,6 +5,21 @@ export const marginVertical = (marginTop, marginBottom = marginTop) => ({
   marginBottom,
 });
 
+export const marginHorizontal = (marginLeft, marginRight = marginLeft) => ({
+  marginLeft,
+  marginRight,
+});
+
+export const paddingVertical = (paddingTop, paddingBottom = paddingTop) => ({
+  paddingTop,
+  paddingBottom,
+});
+
+export const paddingHorizontal = (paddingLeft, paddingRight = paddingLeft) => ({
+  paddingLeft,
+  paddingRight,
+});
+
 export const screenSize = {
   width: '100vw',
   height: '100vh',
