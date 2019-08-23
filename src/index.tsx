@@ -1,21 +1,34 @@
 import { darken } from 'polished';
+import { CSSObject } from 'styled-components';
 
-export const marginVertical = (marginTop, marginBottom = marginTop) => ({
+export const marginVertical = (
+  marginTop,
+  marginBottom = marginTop
+): CSSObject => ({
   marginTop,
   marginBottom,
 });
 
-export const marginHorizontal = (marginLeft, marginRight = marginLeft) => ({
+export const marginHorizontal = (
+  marginLeft,
+  marginRight = marginLeft
+): CSSObject => ({
   marginLeft,
   marginRight,
 });
 
-export const paddingVertical = (paddingTop, paddingBottom = paddingTop) => ({
+export const paddingVertical = (
+  paddingTop,
+  paddingBottom = paddingTop
+): CSSObject => ({
   paddingTop,
   paddingBottom,
 });
 
-export const paddingHorizontal = (paddingLeft, paddingRight = paddingLeft) => ({
+export const paddingHorizontal = (
+  paddingLeft,
+  paddingRight = paddingLeft
+): CSSObject => ({
   paddingLeft,
   paddingRight,
 });
@@ -25,7 +38,7 @@ export const margin = (
   marginRight = marginTop,
   marginBottom = marginTop,
   marginLeft = marginRight
-) => ({
+): CSSObject => ({
   marginTop,
   marginLeft,
   marginRight,
@@ -37,19 +50,19 @@ export const padding = (
   paddingRight = paddingTop,
   paddingBottom = paddingTop,
   paddingLeft = paddingRight
-) => ({
+): CSSObject => ({
   paddingTop,
   paddingLeft,
   paddingRight,
   paddingBottom,
 });
 
-export const screenSize = {
+export const screenSize: CSSObject = {
   width: '100vw',
   height: '100vh',
 };
 
-export const absolute = {
+export const absolute: CSSObject = {
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -57,27 +70,29 @@ export const absolute = {
   right: 0,
 };
 
-export const diagonalGradient = (from, to) => ({
+export const diagonalGradient = (from, to): CSSObject => ({
   background: `linear-gradient(to bottom right, ${from}, ${to})`,
 });
 
-export const topBottomGradient = (from, to) => ({
+export const topBottomGradient = (from, to): CSSObject => ({
   background: `linear-gradient(${from}, ${to})`,
 });
 
-export const size = (w, h = w, important) => ({
+export const size = (w, h = w, important): CSSObject => ({
   width: `${w}px ${important ? '!important' : ''}`,
   height: `${h}px ${important ? '!important' : ''}`,
 });
 
-export const iconSize = (w, h = w) => size(w, h, true);
+export const iconSize = (w, h = w): CSSObject => size(w, h, true);
 
-export const noSelect = {
+export const noSelect: CSSObject = {
   userSelect: 'none',
   cursor: 'default',
 };
 
-export const getActionColors = (color, activeProp = 'active') => props => {
+export const getActionColors = (color, activeProp = 'active') => (
+  props
+): CSSObject => {
   const { disabled } = props;
   const active = props[activeProp];
 
@@ -98,38 +113,39 @@ export const getActionColors = (color, activeProp = 'active') => props => {
   };
 };
 
-export const ellipsis = {
+export const ellipsis: CSSObject = {
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
 };
 
-export const fixedHeight = height => ({
+export const fixedHeight = (height): CSSObject => ({
   height,
   maxHeight: height,
   minHeight: height,
 });
 
-export const fixedWidth = width => ({
+export const fixedWidth = (width): CSSObject => ({
   width,
   maxWidth: width,
   minWidth: width,
 });
 
-export const fixedSize = (width, height = width) => ({
+export const fixedSize = (width, height = width): CSSObject => ({
   ...fixedHeight(height),
   ...fixedWidth(width),
 });
 
-export const whiteish = (opacity = 1) => `rgba(255,255,255, ${opacity})`;
-export const blackish = (opacity = 1) => `rgba(0,0,0, ${opacity})`;
+export const whiteish = (opacity = 1): CSSObject =>
+  `rgba(255,255,255, ${opacity})`;
+export const blackish = (opacity = 1): CSSObject => `rgba(0,0,0, ${opacity})`;
 
-export const hoverAndFocus = style => ({
+export const hoverAndFocus = (style): CSSObject => ({
   '&:hover': style,
   '&:focus': style,
 });
 
-export const hoverAndActiveBackgroundColor = color => ({
+export const hoverAndActiveBackgroundColor = (color): CSSObject => ({
   backgroundColor: color,
   '&:hover': {
     backgroundColor: darken(0.03, color),
@@ -139,24 +155,25 @@ export const hoverAndActiveBackgroundColor = color => ({
   },
 });
 
-export const targetChild = (component, styles) => ({
+export const targetChild = (component, styles): CSSObject => ({
   [`& .${component.className}`]: styles,
 });
 
-export const hoverChild = (component, styles) => ({
+export const hoverChild = (component, styles): CSSObject => ({
   '&:hover': {
     [`& .${component.className}`]: styles,
   },
 });
 
-export const fromTheme = key => p => p.theme[key](p);
+export const fromTheme = key => (property): CSSObject =>
+  property.theme[key](property);
 
 export const autoGrid = (
   minColumnWidth = 250,
   gridGap = 0,
   mode = 'fill',
   maxColumnWidth = '1fr'
-) => ({
+): CSSObject => ({
   gridTemplateColumns: `repeat(auto-${mode}, minmax(${minColumnWidth}px, ${maxColumnWidth}))`,
   display: 'grid',
   gridGap,
@@ -174,7 +191,7 @@ export const grid = ({
   columnGap = 0,
   rowGap = columnGap,
   gap = 0,
-}: gridProps) => {
+}: gridProps): CSSObject => {
   return {
     display: 'grid',
     gridTemplateColumns: `repeat(${cols}, 1fr)`,
@@ -183,7 +200,7 @@ export const grid = ({
   };
 };
 
-export const absoluteCorner = (corner = 1, offset = 0) => {
+export const absoluteCorner = (corner = 1, offset = 0): CSSObject => {
   return {
     position: 'absolute',
     ...(corner === 2 && {
@@ -205,13 +222,17 @@ export const absoluteCorner = (corner = 1, offset = 0) => {
   };
 };
 
-export const unstyleButton = {
+export const unstyleButton: CSSObject = {
   background: 'none',
   outline: 'none',
-  border: 'none'
+  border: 'none',
 };
 
-export const hoverable = ({ color = 'white', background = false, initial = true }) => ({ disabled }) => {
+export const hoverable = ({
+  color = 'white',
+  background = false,
+  initial = true,
+}): CSSObject => ({ disabled }) => {
   const styleKey = background ? 'backgroundColor' : 'color';
 
   return {
@@ -220,30 +241,31 @@ export const hoverable = ({ color = 'white', background = false, initial = true 
       ...(initial && { [styleKey]: color }),
       transition: 'all 150ms linear',
       '&:hover': {
-        [styleKey]: initial ? darken(0.2, color) : color
-      }
-    })
+        [styleKey]: initial ? darken(0.2, color) : color,
+      },
+    }),
   };
 };
 
-export const exceptLast = styles => ({
-  '&:not(:last-of-type)': styles
+export const exceptLast = (styles): CSSObject => ({
+  '&:not(:last-of-type)': styles,
 });
 
-export const exceptFirst = styles => ({
-  '&:not(:last-of-type)': styles
+export const exceptFirst = (styles): CSSObject => ({
+  '&:not(:last-of-type)': styles,
 });
 
-export const spaceAll = (marginDirection, size, spaceBottom?: boolean) => ({
+export const spaceAll = (
+  marginDirection,
+  size,
+  spaceBottom?: boolean
+): CSSObject => ({
   '& > *': {
     [marginDirection]: size,
-    ...(spaceBottom && { marginBottom: size })
+    ...(spaceBottom && { marginBottom: size }),
   },
   '& > *:last-child': {
     [marginDirection]: 0,
-    ...(spaceBottom && { marginBottom: 0 })
-  }
+    ...(spaceBottom && { marginBottom: 0 }),
+  },
 });
-
-
-
