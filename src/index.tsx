@@ -162,17 +162,19 @@ export const autoGrid = (
   gridGap,
 });
 
+export type gridProps = {
+  columnGap?: number;
+  cols: number;
+  rowGap?: number;
+  gap?: number;
+};
+
 export const grid = ({
   cols = 1,
   columnGap = 0,
   rowGap = columnGap,
   gap = 0,
-}: {
-  columnGap?: number;
-  cols: number;
-  rowGap?: number;
-  gap?: number;
-}) => {
+}: gridProps) => {
   return {
     display: 'grid',
     gridTemplateColumns: `repeat(${cols}, 1fr)`,
