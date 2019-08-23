@@ -181,7 +181,7 @@ export const autoGrid = (
 
 export type gridProps = {
   columnGap?: number;
-  cols: number;
+  cols?: number;
   rowGap?: number;
   gap?: number;
 };
