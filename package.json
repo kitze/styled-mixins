@@ -1,6 +1,6 @@
 {
   "name": "styled-mixins",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "dist/index.js",
   "module": "dist/styled-mixins.esm.js",
   "typings": "dist/index.d.ts",
