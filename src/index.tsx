@@ -269,3 +269,34 @@ export const spaceAll = (
     ...(spaceBottom && { marginBottom: 0 }),
   },
 });
+
+export const whiteishHover = (normal = 0.2, hover = 0.3, active = 0.4) => ({
+  backgroundColor: whiteish(normal),
+  '&:hover': {
+    backgroundColor: whiteish(hover)
+  },
+  '&:active': {
+    backgroundColor: whiteish(active)
+  }
+});
+
+export const fontSize = (fontSize: number, lineHeight: number = fontSize) => ({
+  fontSize,
+  lineHeight: `${lineHeight}px`
+});
+
+export const isVisible = ({ visible }) => ({
+  opacity: visible ? 1 : 0,
+  transition: 'opacity 150ms linear'
+});
+
+export const activeOpacity = (normal = 0.7, hover = 0.9, active = 1) => ({
+  opacity: normal,
+  '&:hover': {
+    opacity: hover
+  },
+  '&:active': {
+    opacity: active
+  },
+  cursor: 'pointer'
+});
