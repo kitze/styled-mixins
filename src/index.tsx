@@ -70,6 +70,13 @@ export const absolute: CSSObject = {
   right: 0,
 };
 
+export const absoluteCenter: CSSObject = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+};
+
 export const diagonalGradient = (from, to): CSSObject => ({
   background: `linear-gradient(to bottom right, ${from}, ${to})`,
 });
@@ -273,30 +280,30 @@ export const spaceAll = (
 export const whiteishHover = (normal = 0.2, hover = 0.3, active = 0.4) => ({
   backgroundColor: whiteish(normal),
   '&:hover': {
-    backgroundColor: whiteish(hover)
+    backgroundColor: whiteish(hover),
   },
   '&:active': {
-    backgroundColor: whiteish(active)
-  }
+    backgroundColor: whiteish(active),
+  },
 });
 
 export const fontSize = (fontSize: number, lineHeight: number = fontSize) => ({
   fontSize,
-  lineHeight: `${lineHeight}px`
+  lineHeight: `${lineHeight}px`,
 });
 
 export const isVisible = ({ visible }) => ({
   opacity: visible ? 1 : 0,
-  transition: 'opacity 150ms linear'
+  transition: 'opacity 150ms linear',
 });
 
 export const activeOpacity = (normal = 0.7, hover = 0.9, active = 1) => ({
   opacity: normal,
   '&:hover': {
-    opacity: hover
+    opacity: hover,
   },
   '&:active': {
-    opacity: active
+    opacity: active,
   },
-  cursor: 'pointer'
+  cursor: 'pointer',
 });
